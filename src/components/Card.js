@@ -1,7 +1,12 @@
 import React from 'react';
 
-function Card (props) {
-    const dragStart = e => {
+class Card extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    dragStart = e => {
         const target = e.target;
         e.dataTransfer.setData('card_id', target.id);
 
@@ -10,20 +15,23 @@ function Card (props) {
         }, 0 );
     }
 
-    const dragOver = e => {
+    dragOver = e => {
         e.stopPropagation();
     }
-    return (
-        <div
-            id={props.id}
-            onDragStart={dragStart}
-            onDragOver={dragOver}
-            className={props.className}
-            draggable={props.draggable}
-        >
-            {props.children}
-        </div>
-    );
+
+    render() {
+        return (
+            <div
+                id={this.props.id}
+                onDragStart={this.dragStart}
+                onDragOver={this.dragOver}
+                className={this.props.className}
+                draggable={this.props.draggable}
+            >
+                {this.props.children}
+            </div>
+        );
+    }
 }
 
 export default Card

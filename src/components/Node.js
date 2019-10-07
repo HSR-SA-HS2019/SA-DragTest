@@ -1,7 +1,13 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-function Node (props) {
-    const dragStart = e => {
+class Node extends React.Component{
+
+    constructor(props) {
+        super(props);
+    }
+
+    dragStart = e => {
         const target = e.target;
         e.dataTransfer.setData('card_id', target.id);
 
@@ -10,20 +16,24 @@ function Node (props) {
         }, 0 );
     }
 
-    const dragOver = e => {
+    dragOver = e => {
         e.stopPropagation();
     }
-    return (
-        <div
-            id={props.id}
-            onDragStart={dragStart}
-            onDragOver={dragOver}
-            className={props.className}
-            draggable={props.draggable}
-        >
-            {props.children}
-        </div>
-    );
+
+    render(props){
+        return (
+            <div
+                id={props.id}
+                onDragStart={this.dragStart}
+                onDragOver={this.dragOver}
+                className={props.className}
+                draggable={props.draggable}
+            >
+                {props.children}
+            </div>
+        );
+    }
+
 }
 
 export default Node

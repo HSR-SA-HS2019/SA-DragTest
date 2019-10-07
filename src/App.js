@@ -1,19 +1,20 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 //import './App.css';
 import Graphs from "./components/Graph";
 import Board from "./components/Board";
 import Card from "./components/Card";
+import List from "./components/List";
 
 
 
 function App() {
-  function clickMe() {
-    alert("blub");
-  }
+
 
   return (
     <div className="App">
       <main className="flexbox">
+
         <Board id="board-1" className="board">
           <Card id="card-1" className="card" draggable='true'>
             <p>card-one</p>
@@ -32,11 +33,9 @@ function App() {
           </Card>
         </Board>
 
+        <List></List>
 
       </main>
-      <button onClick={clickMe}>Add card</button>
-
-      <Graphs/>
 
     </div>
   );
