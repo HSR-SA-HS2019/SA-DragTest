@@ -6,7 +6,7 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-graph-vis": "^1.0.2",
-    "react-scripts": "3.1.2",
+    "react-scripts": "5.0.1",
     "vis-react": "^0.4.6"
   },
   "scripts": {
